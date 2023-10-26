@@ -42,7 +42,7 @@ class glimpser():
                 with open("join_video.txt", "a") as f:
                     f.write(f"file videos/{self.counter}outfile.mp4\n") 
                 os.rename(d["filename"], f"videos/{self.counter}outfile.mp4")
-    def genVideo(self,url: str,clips : int, time : float = 0.0, sort :bool = True, random_gap :float =10.0):
+    def genVideo(self,url: str,clips : int, time : float = 0.0, sort :bool = False, random_gap :float =10.0):
         
         
         self.counter = 0
@@ -71,7 +71,7 @@ class glimpser():
 if __name__ == "__main__":
     g = glimpser()
 
-    g.genVideo("https://www.youtube.com/watch?v=WgpByA57jUw",10, 0.5)
+    g.genVideo("https://youtube.com/shorts/AxqNfb4DJzs?si=MuMoS2BiYBAvdKPr",100, 0.05)
 # random.seed(0)
 # print([getInds(100, 10, 10) for _ in range(10000)])
 # print(extr.ytsearch("cats"))
