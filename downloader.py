@@ -89,7 +89,7 @@ with YoutubeDL() as infograb:
     with YoutubeDL(ydl_opts) as ydl:
         ydl.download(test_url)
         # print(info["duration"])
-        ffmpeg_cmd = ['ffmpeg', '-f', 'concat', '-safe', '0', '-i', 'join_video.txt', '-c', 'copy', 'output_demuxer.mp4']
+        ffmpeg_cmd = ['ffmpeg', '-y','-f', 'concat', '-safe', '0', '-i', 'join_video.txt', '-c', 'copy', 'output_demuxer.mp4']
         subprocess.run(ffmpeg_cmd)
 
 
