@@ -46,14 +46,17 @@ class glimpser():
         
         
         self.counter = 0
-        with YoutubeDL() as infograb:
+        opts = {
+            "default_search":"ytsearch",
+        }
+        with YoutubeDL(opts) as infograb:
             info = infograb.extract_info(url, download=False)
             print(info["duration"])
             print(random.sample(range(0,info["duration"]), 5))
             ydl_opts = {
                 "paths": {"home": "videos"},
                 "format": "mp4",
-                "concurrent_fragments":6,
+                "concurrent_fragment_downloads":5,
                 "progress_hooks": [self.filename_hook],
                 "default_search":"ytsearch",
                 "download_ranges":utils.download_range_func(None, [ (start, end) for start,end in self.genInds(info["duration"], clips,time,sort=sort,randGap=random_gap)]),  
